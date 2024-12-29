@@ -5,3 +5,4 @@
 ## [ЛР-4](https://github.com/A1adriel/Python-Programming/tree/main/ЛР-4)
 ## [ЛР-5](https://github.com/A1adriel/Python-Programming/tree/main/ЛР-5)
 ## [ЛР-6](https://github.com/A1adriel/Python-Programming/tree/main/ЛР-6)
+## [ЛР-7](https://github.com/A1adriel/Python-Programming/tree/main/ЛР-7)
