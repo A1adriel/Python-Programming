@@ -1,0 +1,24 @@
+[
+  {
+    "datetime": "2025-06-12T18:02:21.971563",
+    "func_name": "f3",
+    "params": {
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    "result": 27
+  },
+  {
+    "datetime": "2025-06-12T20:49:30.304830",
+    "func_name": "f3",
+    "params": {
+      "args": [
+        3
+      ],
+      "kwargs": {}
+    },
+    "result": 27
+  }
+]
