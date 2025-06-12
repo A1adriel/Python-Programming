@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8 mx-auto text-center">
+        <h1 class="mb-3">Курсы валют Центрального Банка РФ</h1>
+        <p class="lead">Актуальные курсы иностранных валют по отношению к рублю</p>
+        <p class="text-muted">Текущее время: {{ current_time }}</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6 mx-auto">
+        <form action="{{ url_for('set_currencies') }}" method="post" class="card p-3 shadow-sm">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Валюты</span>
+                <input type="text" class="form-control" name="currencies" 
+                       placeholder="USD, EUR, GBP" value="{{ ','.join(current_currencies) }}">
+                <button class="btn btn-primary" type="submit">Обновить список</button>
+            </div>
+            <small class="text-muted">Введите коды валют через запятую (например: USD,EUR,CNY)</small>
+        </form>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+    {% for rate in rates %}
+    <div class="col">
+        <div class="card currency-card h-100 shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="card-title mb-0 text-center">{{ rate.id }}</h5>
+            </div>
+            <div class="card-body text-center">
+                <p class="card-text">{{ rate.name }}</p>
+                <h3 class="text-primary">{{ "%.2f"|format(rate.value) }} ₽</h3>
+                <p class="text-muted">за 1 {{ rate.id }}</p>
+            </div>
+            <div class="card-footer bg-white text-center">
+                <small class="text-muted">Обновлено: {{ rate.date.strftime('%d.%m.%Y %H:%M') }}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="text-center mb-4">
+    <form action="{{ url_for('update_rates') }}" method="post">
+        <button type="submit" class="btn btn-success btn-lg">
+            <i class="bi bi-arrow-clockwise"></i> Обновить курсы
+        </button>
+    </form>
+</div>
+
+{% if message %}
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+{% endif %}
+{% endblock %}
