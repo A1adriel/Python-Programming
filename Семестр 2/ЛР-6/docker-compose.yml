@@ -27,23 +27,18 @@ services:
   db:
     image: mysql:8.0.33
     platform: linux/amd64
-    volumes:
-      - db_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 1717
       MYSQL_USER: aldar
       MYSQL_PASSWORD: 1717
       MYSQL_DATABASE: LR6
+      MYSQL_ROOT_HOST: '%'  # Разрешаем подключение с любого хоста
     ports:
-      - "3307:3306"
+      - "3306:3306"  # Используем стандартный порт
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ualdar", "-p1717"]
       interval: 5s
       timeout: 10s
       retries: 10
-    restart: always
-#    depends_on:
-#      - web
-#docker compose stop db
 volumes:
   db_data:
