@@ -24,7 +24,7 @@ glossary: dict[str,Term]={
 }
 
 engine = None
-engine = create_engine('mysql+pymysql://aldar:1717@db/LR6')
+engine = create_engine('mysql+pymysql://aldar:1717@db:3306/LR6?charset=utf8mb4')
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 
