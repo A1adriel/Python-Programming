@@ -16,3 +16,12 @@
 ### [ЛР-5](https://github.com/A1adriel/Python-Programming/tree/main/Семестр%202/ЛР-5)
 ### [ЛР-6](https://github.com/A1adriel/Python-Programming/tree/main/Семестр%202/ЛР-6)
 ### [ЛР-7](https://github.com/A1adriel/Python-Programming/tree/main/Семестр%202/ЛР-7)
+
+## 3 курс, осенний семестр
+### [ЛР-1]()
+### [ЛР-2]()
+### [ЛР-3]()
+### [ЛР-4]()
+### [ЛР-5]()
+### [ЛР-6]()
+### [ЛР-7]()
