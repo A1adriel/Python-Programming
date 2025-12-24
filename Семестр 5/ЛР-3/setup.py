@@ -8,7 +8,7 @@ setuptools.setup(
     description="Flask MVC web application package",
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/jamanuriyeva/JamasPackage",
+    url="https://github.com/A1adriel/Python-Programming/tree/main/Семестр%205/ЛР-3'",
     packages=setuptools.find_packages(),
     python_requires=">=3.8",
     install_requires=[
@@ -22,3 +22,4 @@ setuptools.setup(
     },
 
 )
+
