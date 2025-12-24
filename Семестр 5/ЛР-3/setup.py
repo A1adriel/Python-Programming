@@ -17,7 +17,8 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'jamaspackage=jamaspackage.main:main',
+            'https://github.com/A1adriel/Python-Programming/tree/main/Семестр%205/ЛР-3',
         ],
     },
+
 )
