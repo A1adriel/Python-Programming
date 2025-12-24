@@ -24,4 +24,4 @@
 ### [ЛР-4](https://github.com/A1adriel/Python-Programming/tree/main/Семестр%205/ЛР-4)
 ### [ЛР-5](https://github.com/A1adriel/Python-Programming/tree/main/Семестр%205/ЛР-5)
 ### [ЛР-6](https://github.com/A1adriel/Python-Programming/tree/main/Семестр%205/ЛР-6)
-### [ЛР-7](https://github.com/A1adriel/Python-Programming/tree/main/Семестр%205/ЛР-7)
+### [ЛР-7](https://github.com/A1adriel/Python-Programming/tree/main/Семестр%205/ЛР-7.pdf)
