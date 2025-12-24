@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Курс валют (Observer)</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        #rates { margin-top: 20px; }
+        .rate { font-size: 1.2em; margin: 5px 0; }
+        .updated { color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>🔔 Наблюдатель за курсами валют</h1>
+    <p><strong>Идентификатор клиента:</strong> <code id="client-id">—</code></p>
+    <div id="rates">
+        <p>Ожидание данных...</p>
+    </div>
+
+    <script>
+        const ws = new WebSocket(`ws://${location.host}/ws`);
+        const clientIdEl = document.getElementById('client-id');
+        const ratesEl = document.getElementById('rates');
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.type === 'welcome') {
+                clientIdEl.textContent = data.client_id;
+                updateRates(data.rates, data.last_update);
+            } else if (data.type === 'update') {
+                updateRates(data.rates, data.timestamp);
+            }
+        };
+
+        function updateRates(rates, timestamp) {
+            let html = '';
+            for (const [code, value] of Object.entries(rates)) {
+                html += `<div class="rate">${code}: <strong>${value.toFixed(4)}</strong></div>`;
+            }
+            if (timestamp) {
+                const date = new Date(timestamp);
+                html += `<div class="updated">Обновлено: ${date.toLocaleString()}</div>`;
+            }
+            ratesEl.innerHTML = html;
+        }
+
+        ws.onerror = () => {
+            ratesEl.innerHTML = '<p style="color:red">⚠️ Ошибка WebSocket</p>';
+        };
+
+        ws.onclose = () => {
+            ratesEl.innerHTML += '<p style="color:orange">⚠️ Соединение закрыто</p>';
+        };
+    </script>
+</body>
+</html>
