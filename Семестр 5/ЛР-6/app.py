@@ -46,7 +46,7 @@ class CurrencyRateSubject:
                 "GBP": valutes["GBP"]["Value"],
             }
         except Exception as e:
-            print(f"❌ Ошибка загрузки курсов: {e}")
+            print(f"Ошибка загрузки курсов: {e}")
             return self._rates or {"USD": 75.0, "EUR": 82.0, "GBP": 95.0}
 
     async def check_and_notify(self) -> None:
@@ -68,7 +68,7 @@ class CurrencyRateSubject:
             try:
                 observer.write_message(json_encode(message))
             except Exception as e:
-                print(f"❌ Ошибка отправки клиенту {getattr(observer, 'client_id', '???')}: {e}")
+                print(f"Ошибка отправки клиенту {getattr(observer, 'client_id', '???')}: {e}")
                 self.detach(observer)
 
 
@@ -126,5 +126,6 @@ if __name__ == "__main__":
     app = make_app(test_mode=test_mode)
     port = 8888
     app.listen(port)
-    print(f"🚀 Сервер запущен на http://localhost:{port} (test_mode={test_mode})")
+    print(f"Сервер запущен на http://localhost:{port} (test_mode={test_mode})")
+
     tornado.ioloop.IOLoop.current().start()
